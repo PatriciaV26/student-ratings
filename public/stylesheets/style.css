@@ -1,8 +1,31 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#lista {
+  width: 100%;
+}
+#lista td {
+  padding: 4px;
+}
+
+#lista input {
+  width: 100%;
+}
+table{
+  margin:0 auto;
+  text-align: center;
+  border-collapse:collapse;
+  border: 1px solid #d4d4d4;
+  font-size:20px;
+  background :#fff;
+}
+table th,
+table tr:nth-child(2n+2){
+  background:#e7e7e7;
 }
