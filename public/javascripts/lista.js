@@ -24,14 +24,27 @@ fetch(API_URL.READ).then(function (r) {
 const stars = document.querySelector('#rating')   
 function display(persons) {
     var list = persons.map(function (person) {
-        return `<tr 'data/person.json'>
+        return `<tr>
             <td>${person.firstname}</td>
             <td>${person.lastname}</td>
-            <td>${person.email}</td>  
+            <td><input type="number" class="rate" value="0" max=5 name="${person.id}"></td>  
         </tr>`
     });
 
     document.querySelector('#lista tbody').innerHTML = list.join('');
+}
+
+const Students = {
+    getMarks: function () {
+        var marks = Array.from(document.querySelectorAll("input[type=number]"))
+        
+        return marks.map(input => {
+            return {
+                name: input.name,
+                nota: input.value
+            };
+        }).filter(mark => mark.nota > 0)
+    }
 }
 
 

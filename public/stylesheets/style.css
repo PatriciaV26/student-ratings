@@ -29,3 +29,7 @@ table th,
 table tr:nth-child(2n+2){
   background:#e7e7e7;
 }
+
+#lista input.rate {
+  width: 50px;
+}
