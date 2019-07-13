@@ -38,31 +38,61 @@ function display(persons) {
 
 const Students = {
     saveMarks: function() {
-        //TODO READ signature 
-        //READ Marks
-        //POST MARKS
-        // var firstName = document.querySelector('[name=firstName]').value;
-        // var lastName = document.querySelector('[name=lastName]').value;
+
         var marks = this.getMarks();
         console.log(marks);
     },
-
-    // inlineAdd: function(id, firstName, lastName, marks) {
-
-    // },
-
+    saveNote:function(){
+        var note = this.getMarks();
+        console.log(note);
+        
+    },
     getMarks: function () {
         var marks = Array.from(document.querySelectorAll("input[type=number]"))
-        
+        var firstName = document.querySelectorAll('[name=firstName]').value;
         return marks.map(input => {
             return {
-                name: input.name,
+                studentId: input.name,
                 nota: input.value
-            };
-        });//.filter(mark => mark.nota > 0)
-    }
-};
 
+            };
+        });
+    },
+}
+    function inlineAdd(){
+        this.list.push({
+            id,
+            firstName,
+        });
+        this.display(this.list);
+    }
+
+  
+    function submitNewNote(firstName,note) {
+        var body = null;
+        const method = API_METHOD.ADD;
+        if (method === 'POST') {
+            body = JSON.stringify({
+                firstName,
+                note
+            })
+        }
+        fetch(API_URL.ADD, {
+            method,
+            body,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function(r) {
+            return r.json();
+        }).then(function(status) {
+            if (status.success) {
+                inlineAdd();
+            } else {
+                console.warn('not saved!', status);
+            }
+        })
+    }
 // if one parameter can skipp pharantesis 
 // "(value)" will be "value"
 const search = value => {
