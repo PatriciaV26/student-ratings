@@ -73,7 +73,7 @@ router.post('/rate', function(req, res, next) {
   console.warn('add', test_id , marks, owner);
 
   var values =  marks.map(mark => [
-    mark.studentId, test_id, mark.nota, owner
+    mark.studentId, test_id, mark.mark, owner
   ]);
   console.info(values);
   pool.getConnection((err, connection) => {

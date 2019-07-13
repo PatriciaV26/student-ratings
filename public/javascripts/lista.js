@@ -41,10 +41,10 @@ function display(persons) {
 }
 
 const Students = {
-    saveMarks: function() {
+    saveRate: function() {
         this.submit(3);
     },
-    saveNote:function(){
+    saveMark:function(){
         this.submit(1);
     },
 
@@ -53,7 +53,7 @@ const Students = {
         return marks.map(input => {
             return {
                 studentId: input.name * 1,
-                nota: input.value * 1
+                mark: input.value * 1
             };
         });
     },
@@ -82,7 +82,7 @@ const Students = {
             return r.json();
         }).then(function(status) {
             if (status.success) {
-               //document.location.href = '/';
+               document.location.href = '/';
                 //load();
             } else {
                 console.warn('not saved!', status);

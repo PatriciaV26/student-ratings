@@ -28,7 +28,6 @@ function display(students) {
             <td>${student.lastname}</td>
             <td>${student.avg}</td> 
             <td>${student.rating}</td>  
-            <td></td>
         </tr>`
     });
     document.querySelector('#lista tbody').innerHTML = list.join('');
