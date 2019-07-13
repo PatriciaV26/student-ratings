@@ -36,31 +36,32 @@ function display(persons) {
     document.querySelector('#lista tbody').innerHTML = list.join('');
 }
 
-// const Students = {
-//     saveMarks: function() {
-//         //TODO READ signature 
-//         //READ Marks
-//         //POST MARKS
-//         var firstName = document.querySelector('[name=firstName]').value;
-//         var lastName = document.querySelector('[name=lastName]').value;
-//         var marks = document.querySelector('[name=marks]').value;
-//     },
+const Students = {
+    saveMarks: function() {
+        //TODO READ signature 
+        //READ Marks
+        //POST MARKS
+        // var firstName = document.querySelector('[name=firstName]').value;
+        // var lastName = document.querySelector('[name=lastName]').value;
+        var marks = this.getMarks();
+        console.log(marks);
+    },
 
-//     // inlineAdd: function(id, firstName, lastName, marks) {
+    // inlineAdd: function(id, firstName, lastName, marks) {
 
-//     // },
+    // },
 
-//     getMarks: function () {
-//         var marks = Array.from(document.querySelectorAll("input[type=number]"))
+    getMarks: function () {
+        var marks = Array.from(document.querySelectorAll("input[type=number]"))
         
-//         return marks.map(input => {
-//             return {
-//                 name: input.name,
-//                 nota: input.value
-//             };
-//         }).filter(mark => mark.nota > 0)
-//     }
-// };
+        return marks.map(input => {
+            return {
+                name: input.name,
+                nota: input.value
+            };
+        });//.filter(mark => mark.nota > 0)
+    }
+};
 
 // if one parameter can skipp pharantesis 
 // "(value)" will be "value"
