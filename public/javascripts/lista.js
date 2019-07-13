@@ -4,7 +4,7 @@ var editPersonId;
 var API_URL = {
     CREATE: '...',
     READ: 'users',
-    ADD:'users/add',
+    ADD:'users/rate',
     UPDATE : 'users/update',
     DELETE : 'users/delete'
 };
@@ -12,16 +12,20 @@ var API_URL = {
 var API_METHOD = {
     CREATE: 'POST',
     READ: 'GET',
-    //ADD: 'GET'
+    ADD: 'POST'
 }
 
-fetch(API_URL.READ).then(function (r) {
-    return r.json();
-}).then(function (persons) {
-    console.log('all persons', persons);
-    allPersons = persons;
-    display(persons);
-});
+function load(){
+    fetch(API_URL.READ).then(function (r) {
+        return r.json();
+    }).then(function (persons) {
+        console.log('all persons', persons);
+        allPersons = persons;
+        display(persons);
+    });
+}
+
+load();
 
 const stars = document.querySelector('#rating');
 
@@ -38,43 +42,34 @@ function display(persons) {
 
 const Students = {
     saveMarks: function() {
-
-        var marks = this.getMarks();
-        console.log(marks);
+        this.submit(3);
     },
     saveNote:function(){
-        var note = this.getMarks();
-        console.log(note);
-        
+        this.submit(1);
     },
+
     getMarks: function () {
         var marks = Array.from(document.querySelectorAll("input[type=number]"))
-        var firstName = document.querySelectorAll('[name=firstName]').value;
         return marks.map(input => {
             return {
-                studentId: input.name,
-                nota: input.value
-
+                studentId: input.name * 1,
+                nota: input.value * 1
             };
         });
     },
-}
-    function inlineAdd(){
-        this.list.push({
-            id,
-            firstName,
-        });
-        this.display(this.list);
-    }
 
-  
-    function submitNewNote(firstName,note) {
+    submit: function (testId) {
+        var owner = document.getElementById('owner').value;
+        var marks = this.getMarks();
+        console.log(testId, owner, marks);
+
         var body = null;
         const method = API_METHOD.ADD;
         if (method === 'POST') {
             body = JSON.stringify({
-                firstName,
-                note
+                testId,
+                owner,
+                marks
             })
         }
         fetch(API_URL.ADD, {
@@ -87,12 +82,15 @@ const Students = {
             return r.json();
         }).then(function(status) {
             if (status.success) {
-                inlineAdd();
+               //document.location.href = '/';
+                //load();
             } else {
                 console.warn('not saved!', status);
             }
         })
     }
+}
+
 // if one parameter can skipp pharantesis 
 // "(value)" will be "value"
 const search = value => {

@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/ratings', function (req, res, next) {
   pool.getConnection((err, connection) => {
-    const sql = `SELECT students.*, AVG(students_tests.grades) as avg FROM students LEFT JOIN students_tests ON (students.id = students_tests.student_id AND students_tests.test_id <> 3 ) GROUP BY students.id`;
+    const sql = `SELECT students.*, AVG(students_tests.grades) as avg FROM students LEFT JOIN students_tests ON (students.id = students_tests.student_id AND students_tests.test_id <> 3 ) GROUP BY students.id ORDER BY avg DESC`;
     connection.query(sql, (err, results) => {
 
       const sql = `SELECT students.id, AVG(students_tests.grades) as avg FROM students LEFT JOIN students_tests ON (students.id = students_tests.student_id AND students_tests.test_id = 3 ) GROUP BY students.id`;
@@ -33,7 +33,8 @@ router.get('/ratings', function (req, res, next) {
             return result.id === rating.id;
           })
 
-          result.rating = rating.avg;
+          result.avg = result.avg || 0;
+          result.rating = rating.avg || 0;
           return result;
         })
         res.json(results);
@@ -65,21 +66,22 @@ router.post('/add', function (req, res, next) {
   });
 });
 
-router.post('/add', function(req, res, next) {
-  var student_id= req.body.student_id;
-  var test_id = req.body.test_id;
-  var grades = req.body.grades;
+router.post('/rate', function(req, res, next) {
+  var test_id = req.body.testId;
+  var marks = req.body.marks;
   var owner=req.body.owner;
-  console.warn('add', student_id, test_id ,grades,owner);
+  console.warn('add', test_id , marks, owner);
 
+  var values =  marks.map(mark => [
+    mark.studentId, test_id, mark.nota, owner
+  ]);
+  console.info(values);
   pool.getConnection((err, connection) => {
-    const sql = `INSERT INTO students_tests (student_id, test_id, grades, owner) VALUES (NULL, '${student_id}', '${test_id}', '${grades}','${owner}');`;
+    const sql = `INSERT INTO students_tests (student_id, test_id, grades, owner) VALUES ?`;
     console.log(sql);
-    connection.query(sql, (err, result) => {
-      const id = result.insertId;
+    connection.query(sql, [values], (err, result) => {
       res.json({
         success: true,
-        id,
         message: 'Done!'
       });
       connection.release();
