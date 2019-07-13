@@ -26,7 +26,8 @@ function display(students) {
         return `<tr>
             <td>${student.firstname}</td>
             <td>${student.lastname}</td>
-            <td>${student.avg}</td>  
+            <td>${student.avg}</td> 
+            <td>${student.rating}</td>  
             <td></td>
         </tr>`
     });
