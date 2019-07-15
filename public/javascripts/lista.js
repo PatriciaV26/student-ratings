@@ -106,4 +106,13 @@ function initEvents() {
     const tbody = document.querySelector('#lista tbody')
 }
 
+function getParam(name) {
+    return (location.search.split(name + "=")[1] || "").split("&")[0];
+  }
+if (getParam("test")==3){
+    document.getElementById('test1').style.visibility = 'hidden';
+} else if (getParam("test")==1) {
+    document.getElementById('test3').style.visibility = 'hidden';
+}
+
 initEvents();
