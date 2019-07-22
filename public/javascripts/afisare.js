@@ -5,10 +5,6 @@ var API_URL = {
     READ: 'users/ratings'
 };
 
-if (true || location.host === "PatriciaV26.github.io") {
-    API_URL.READ = 'data/students.json';
-}
-
 var API_METHOD = {
     CREATE: 'POST',
     READ: 'GET',
