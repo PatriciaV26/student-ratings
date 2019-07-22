@@ -5,7 +5,7 @@ Online catalog for grading students and view a top based on their grades. (mostl
 
 ## Live Preview
 
-- [List of Students](https://patriciav26.github.io/student-ratings/public)
+- [List of Students](https://patriciav26.github.io/student-ratings/public/marks.html)
 - [Top based on grade](https://patriciav26.github.io/student-ratings/public/index.html)
 
 ## Dev Notes
