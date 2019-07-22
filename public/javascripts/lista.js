@@ -15,6 +15,10 @@ var API_METHOD = {
     ADD: 'POST'
 }
 
+if (true || location.host === "PatriciaV26.github.io") {
+    API_URL.READ = 'data/students.json';
+}
+
 function load(){
     fetch(API_URL.READ).then(function (r) {
         return r.json();
