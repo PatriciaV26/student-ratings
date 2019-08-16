@@ -126,13 +126,13 @@ table{
 }
 #owner {
   width: 300px;
-  background: $white;
+  background: white;
   @include transition(all .4s ease);
-  font-family: $roboto;
+  font-family: roboto;
   font-size: 18px;
   letter-spacing: .5px;
-  color: $dark-gray;
+  color: dark-gray;
     @include placeholder {
-      color: darken($white, 13%);
+      color: darken(white, 13%);
     }
 }
