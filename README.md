@@ -1,5 +1,5 @@
 
-# JS/HTML/CSS Quiz
+# Online Catalog
 
 Online catalog for grading students and view a top based on their grades. (mostly javascript).
 

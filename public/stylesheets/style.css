@@ -1,22 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Amarante');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-  padding: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+body { 
+  background: #eee url('https://i.imgur.com/eeQeRmk.png'); /* https://subtlepatterns.com/weave/ */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+  color: #585858;
+  padding: 22px 10px;
+  padding-bottom: 55px;
+}
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong, b { font-weight: bold; } 
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+h2 { 
+  font-family: 'Amarante', Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 3.6em;
+  line-height: 1.7em;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-a {
-  color: #00B7FF;
-}
-
-#lista {
-  width: 100%;
-}
-#lista td {
-  padding: 4px;
-}
-
-#lista input {
-  width: 100%;
-}
 table{
   margin:0 auto;
   text-align: center;
@@ -25,11 +48,91 @@ table{
   font-size:20px;
   background :#fff;
 }
-table th,
-table tr:nth-child(2n+2){
-  background:#e7e7e7;
-}
 
 #lista input.rate {
   width: 50px;
+}
+
+
+#lista {
+  margin: 0 auto;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  width: 80%;
+}
+
+
+#lista thead {
+  cursor: pointer;
+  background: #c9dff0;
+}
+#lista thead tr th { 
+  font-weight: bold;
+  padding: 12px 30px;
+  padding-left: 42px;
+}
+
+#lista thead tr th.headerSortUp, #lista thead tr th.headerSortDown {
+  background: #acc8dd;
+}
+
+#lista tbody tr { 
+  color: #555;
+}
+#lista tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#lista tbody tr td.lalign {
+  text-align: left;
+}
+#test3 {
+  border: 2px solid #FFF;
+  transition: all 0.3s ease;
+  border-radius: 5px; 
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 170px;
+  height: 50px;
+  transition: all 0.3s ease; 
+  background-color: rgb(146, 152, 163);
+}
+#test1 {
+  border: 2px solid #FFF;
+  transition: all 0.3s ease;
+  border-radius: 5px; 
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 170px;
+  height: 50px;
+  transition: all 0.3s ease; 
+  background-color: rgb(146, 152, 163);
+}
+#test3:hover {
+  width:260px;
+  color: #fff;
+  background: rgb(57, 153, 190);
+}
+#test1:hover {
+  width:260px;
+  color: #fff;
+  background:rgb(57, 153, 190);
+}
+#owner {
+  width: 300px;
+  background: $white;
+  @include transition(all .4s ease);
+  font-family: $roboto;
+  font-size: 18px;
+  letter-spacing: .5px;
+  color: $dark-gray;
+    @include placeholder {
+      color: darken($white, 13%);
+    }
 }
