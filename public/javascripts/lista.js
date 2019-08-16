@@ -15,7 +15,7 @@ var API_METHOD = {
     ADD: 'POST'
 }
 
-if (location.host === "PatriciaV26.github.io") {
+if (true||location.host === "PatriciaV26.github.io") {
     API_URL.READ = 'data/students.json';
 }
        
