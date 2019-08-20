@@ -38,7 +38,7 @@ function display(persons) {
         return `<tr>
             <td>${person.firstname}</td>
             <td>${person.lastname}</td>
-            <td><input type="number" class="rate" value="0" max=5 name="${person.id}"></td>  
+            <td><input type="number" class="rate" value="0" max=10 name="${person.id}"></td>  
         </tr>`
     });
     document.querySelector('#lista tbody').innerHTML = list.join('');
